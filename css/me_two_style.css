@@ -1,0 +1,85 @@
+* {
+    font-family:  sans-serif;
+}
+
+h1, h2 {
+    color: pink;
+    font-size: large;
+    margin-bottom: 30px;
+
+}
+
+body {
+    background-color: rgb(47, 12, 37); /* Choose the desired background color */
+}
+
+#page-container {
+    margin-right:250px;
+    margin-left: 100px;
+    margin-top: 10px;
+    border-style: double;
+    border-radius: 10px;
+    border-style: single;
+    background-color: white;
+
+}
+
+#top {
+    border-style: double;
+    /* margin: 10px 100px 50px 10px; */
+    padding: 10px 10px 10px 10px;
+
+}
+
+
+#fav-list-container {
+    border-style: double;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#food-image-container{
+    display: flex;
+}
+
+
+.left-col {
+    width: 502px;
+    height: 299px;
+    background-image: url('/images/noor.png');
+}
+.right-col{
+    flex: 1;
+    padding: 10px;
+}
+
+/* 
+#food-image {
+    margin-right: 100px;
+    background-image: url('/images/noor.png');
+    width: 480px;
+    height: 299px;
+    border:1px solid black;
+} */
+
+#logo-imgs{
+    width: 200px;
+    position: fixed;
+    right: 35px;
+    top: 100px
+
+}
+
+
+table {
+    border-style: double;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(238, 234, 234); /* Add background color to alternate rows */
+}
+
+label {
+    text-align: right;
+  }
+
