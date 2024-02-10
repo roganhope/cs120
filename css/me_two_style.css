@@ -54,7 +54,7 @@ body {
 .left-col {
     width: 502px;
     height: 299px;
-    background-image: url('/images/salmon.png');
+    background-image: url('../images/salmon.png');
     background-position: center;
     background-size: cover;
 }
