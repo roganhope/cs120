@@ -56,7 +56,14 @@ body {
     height: 299px;
     background-image: url('/images/salmon.png');
     background-position: center;
+    background-size: cover;
 }
+
+.left-col img {
+    max-width: 100%;
+    height: auto; 
+}
+
 .right-col{
     flex: 1;
     padding: 10px;
