@@ -2,44 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/me_two_style.css" rel="stylesheet">
-
-   
-</head>
-<body>
-    <div id="logo-imgs">
+  <h1>Hope Rogan</h1>
+  <div id="logo-imgs">
         <img src="images/fb.png" alt="fb-logo" width=70>
         <img src="images/x-twitter.png" alt="fb-logo" width=70>
     </div>
+</head>
+<body>
+  <div class="page-container">
+    <h2>A Favorite Trip</h2>
+    <div>
+        <p> One of my favorite trips I took was a special airbnb I reserved as a birthday trip for my boyfriend. It was a tiny home located in Chester, Vermont. We had a gorgeous tiny home, fire-pit, and star lit sky to ourselves. Our weekend was full of hiking, eating, and relaxing. It doesn’t get better than that!</p>
+    </div>
 
-    <div id="page-container">
-        <div id="top">
-            <h1>Hope Rogan</h1>
-            <p>Hello there! I'm excited to be part of this class because I genuinely enjoy the creative aspects of web development. The combination of technical skills and artistic design is what drew me in. In today's world, web development is omnipresent, and I believe that to be a well-rounded Computer Science student, understanding how the web works is crucial.</p>
-            <p>While I have some experience with front-end development, the back-end side is uncharted territory for me. I've completed some free online courses and dabbled in setting up cards on a business page, but there's so much more to explore and learn!</p>
-            <p>Here are a few things about me:</p>
-        </div>
+    <h2>Some Pet Names</h2>
+    <div class="list-container">
+        <p>Here are some favorite pet names: </p>
+        <ul>
+            <li>tofu, for a cat </li>
+            <li>baguette, for a dog (actually experienced this) </li>
+            <li>a cricket, named Frank</li>
+        </ul>
+    </div>
+    <h2>My Favorite Resturant</h2>
+    <div>
+        <p>Here is a link to my favorite resturaunt, <a target="_blank" href="https://noorgrill.com/">Noor Grill</a>.
+        It is my family's establishment, and being completely unbiased, the food is delightful. I grew up eating nothing but rice pilaf, kebab, and salad. It's a taste of home and super fresh!</p>
+    </div>
 
-        <div id="fav-list-container">
-            <ul>
-                <li>I have a deep love for anything Armenian Cuisine.</li>
-                <li>Salmon Sashimi is a personal favorite.</li>
-                <li>Mushroom Ravioli always hits the spot.</li>
-            </ul>
-        </div>
+    <div class="container">
+        <img class="flex-child" id="kebab" src="images/noor.png" alt="kebab-plate"> 
+        <p class="flex-child" >A dinner plate from noor grill. When having a tradiitonal Armenian meal, we always serve rice pilaf, some sort of meat, crispy salad, and warm pita bread. As a bonus, we also include garlic sauce and pickles occaisonally.</p>
+    </div>
 
-        <div id="food-image-container">
-            <div class="left-col"></div>
-            <div class="right-col">
-                <p>A photo of salmon sashimi, I could eat it for days! It is full of vitamins and protein. All it needs is some wasabi and soy. </p>
-            </div>
-        </div>
+    <br>
+    <div class="container-book-table">
+        <h2> Favorite Books</h2>
+        <table id="book-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Cover Image</th>
+                    <th>Author</th>
+                    <th>Summary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Outlander</td>
+                    <td><img class="book-cover" src="images/outlander_book1.png" alt="Outlander Cover"></td>
+                    <td>Diana Gabaldon</td>
+                    <td>
+                        "Outlander" follows the story of Claire Randall, a World War II nurse who is transported back in time to 18th-century Scotland. Amidst the turmoil of historical events, she finds herself torn between two vastly different worlds and two passionate men. As she navigates love, adventure, and intrigue, Claire must confront her own desires and loyalties in this captivating tale of romance and time-travel.</td>
+                </tr>
 
+                <tr>
+                    <td>The Gene: An Intimate History</td>
+                    <td><img class="book-cover" src="images/the_gene.png" alt="Outlander Cover"></td>
+                    <td> Siddhartha Mukherjee
+                    </td>
+                    <td>
+                       
+"The Gene: An Intimate History" delves into the complex and fascinating world of genetics, tracing the history of the science from its earliest discoveries to its modern-day breakthroughs. Through compelling narratives and insightful analysis, author Siddhartha Mukherjee explores the profound impact of genetics on humanity's understanding of identity, heredity, and the very essence of life itself. Blending scientific rigor with personal anecdotes, this illuminating work offers a thought-provoking exploration of the genetic code that defines us all.</td>
+                </tr>
+
+                <tr>
+                    <td>How to Win Friends and Influence People</td>
+                    <td><img class="book-cover" src="images/win_friends.png" alt="Outlander Cover"></td>
+                    <td>Dale Carnegie</td>
+                    <td>
+                        
+"How to Win Friends and Influence People" by Dale Carnegie is a timeless classic that offers practical advice on interpersonal communication and relationship-building. Through anecdotes and principles, Carnegie teaches readers how to enhance their social skills, influence others positively, and navigate various social situations with grace and confidence. With its emphasis on empathy, understanding, and genuine connection, this book continues to empower readers to cultivate meaningful relationships and achieve success in both personal and professional spheres.</td>
+                </tr>
+
+                <tr>
+                    <td>Maybe You Should Talk To Someone</td>
+                    <td><img class="book-cover" src="images/maybe.jpg" alt="Outlander Cover"></td>
+                    <td>Lori Gottlieb</td>
+                    <td>
+                        
+"Maybe You Should Talk to Someone" by Lori Gottlieb provides a candid and insightful exploration of therapy from both the perspective of a therapist and a patient. Through heartfelt anecdotes and introspective reflections, Gottlieb offers readers a window into the complexities of the human psyche and the transformative power of therapy. With warmth, humor, and empathy, she navigates themes of vulnerability, resilience, and the universal quest for meaning, inspiring readers to embrace the journey of self-discovery and seek support when needed.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div  class="container-form">
         <form action="/#" method="post">
             <table>
-                <caption>A Very Nice Form</caption>
+                <h2>Form</h2>
               <tr>
                 <td><label for="first-name">First Name:</label></td>
                 <td><input type="text" id="first-name" name="first-name"></td>
@@ -65,12 +117,25 @@
                   </select>
                 </td>
               </tr>
+             
               <tr>
-                <td colspan="2"><button type="submit">GIVE ME YOUR DATA</button></td>
+                <td colspan="2"><button type="submit">Submit</button></td>
               </tr>
             </table>
           </form>
-
     </div>
+    <h2>Favorite Food</h2>
+    <div class="container-fav-food">
+      <div class="fav-food-image"></div>
+      <div class="fav-description">
+        <p>A photo of salmon sashimi, I could eat it for days! It is full of vitamins and protein. All it needs is some wasabi and soy.</p>
+      </div>
+    </div>
+    
+  </div>
+
+
+  
 </body>
+
 </html>
