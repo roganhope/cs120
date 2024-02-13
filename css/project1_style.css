@@ -1,0 +1,368 @@
+
+* {
+    color: rgb(245, 222, 251);
+    font-family: sans-serif;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+
+p {
+    font-size: 1em;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left:0;
+    padding:1.3rem 5%;;
+    background: rgb(13, 2, 13);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+
+.navbar a { 
+    font-size: 20px;
+    text-decoration: none; 
+    color:rgb(210, 155, 239);
+    margin-right: 20px;
+}
+
+.navbar a:hover {
+    color: rgb(255, 0, 225); 
+    font-size: 22px;
+}
+
+.logo img {
+    height: auto;
+    max-width: 8%;
+}
+body {
+    padding-top: 80px;
+    background-color: rgb(8, 1, 7);
+    color: white;
+    margin: 0;
+    padding:0;
+}
+
+.s1 {
+    display: flex;
+    justify-content: center;
+}
+
+.s1 h1, .s2 h2 {
+    text-align: center;
+    text-shadow: 
+        -1px -1px 0 #000000,  
+         1px -1px 0 #000000,
+        -1px  1px 0 #000000,
+         1px  1px 0 #000000; 
+}
+
+.s1 {
+    height: 100vh;
+    background-image: url("../images/site1/disco-ball-header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.s1 h2 {
+    font-size: 4vw;
+}
+.s1 h1 {
+    font-size: 5vw;
+}
+
+.s2 {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 10px 10px 10px;
+    /* border-style: solid; */
+}
+
+.s2-right-container {
+    width: 33vw;
+    padding: 5px;
+    background-color: rgb(40, 0, 35) ;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 0px 50px 0px 50px;
+}
+
+.s2-right-container {
+    border-style: solid;
+}
+.s2 h1 {
+    font-size: 2em;
+}
+
+.s2 p{
+    font-size: 1em;
+}
+
+.s2-left-container {
+    /* background-color: black; */
+    border-style: solid;
+    border-color: rgb(21, 20, 20);
+}
+
+.s3 {
+    margin-top: 20px;
+    margin-bottom: 10px;;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 10px 10px 10px;
+    /* border-style: solid; */
+    /* border-color: red; */
+
+}
+
+.s3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 70vh;
+    border-style: solid;
+    padding: 10px 22px 10px 22px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgb(104, 92, 124);
+    word-wrap: break-word;
+}
+
+.icon {
+   /* border-style: solid; */
+   width: 25%;
+   height: 30%;
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+}
+
+.icon img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.s4 {
+    width: 100%;
+    /* height: 50vh; */
+    /* border-style: solid; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.s4 img {
+    width: 10vw;
+    height: auto;
+    
+}
+/* contact page  */
+.section-container-contact {
+    margin-top: 80px;
+    width: 100%;
+    height: 100vh;
+    /* border-style: solid;
+    border-color: red; */
+    background-image: url("../images/site1/disco-hands.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.contact-left {
+    width: 50%;
+    height:60vh;
+    /* border-style: solid; */
+    margin-top: 100px;
+    margin-left: 100px;
+    background-color: rgba(13, 13, 13, 0.841);
+
+}
+
+.contact-right {
+    width: 30%;
+    height:60vh;
+    margin-top: 100px;
+    margin-left: 100px;
+    background-color: rgba(13, 13, 13, 0.841);
+    
+}
+
+.contact-right h1,
+.contact-right p {
+    margin: 20px; 
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding:1.3rem 5%;
+    color: black;
+}
+
+footer p {
+    color: rgb(43, 33, 33);
+    font-style: italic;
+}
+
+
+/* songpage  */
+.songpage-content {
+    margin-top: 200px;
+    border-style: solid;
+    border-color: red;
+    width: 100%;
+    height: 100vh;
+    /* display: flex; */
+    
+}
+.song-cards {
+    /* display: flex; */
+    border-style: solid;
+    border-color: yellow;
+    width: 94%;
+    height: 500px;
+    margin: 0 auto;
+}
+.song {
+    border-style: solid;
+    border-color: purple;
+}
+
+
+
+
+
+/* ------------------------------------------------------ */
+@media (max-width: 800px){
+
+    /* navbar  */
+    .navbar a { 
+        font-size: 15px;
+        text-decoration: none; 
+        color:rgb(210, 155, 239);
+        margin-right: 20px;
+    }
+    
+    .navbar a:hover {
+        color: rgb(255, 0, 225); 
+        font-size: 16px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        border: solid;
+        color: yellow;
+        /* background-image: none; */
+    }
+
+    /* home page  */
+    .s2 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .s2-left-container {
+        order: 1; 
+        margin-bottom: 20px; 
+    }
+
+    .s2-right-container {
+        order: 2; 
+        width: 100%;
+        height: 600px;
+    }
+
+    .s3 {
+        flex-direction: column;
+        align-items: center;
+       
+    }
+    .s3-content {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .s3-content h1 {
+        font-size: 1.5em;;
+    }
+  
+
+
+    
+
+    /* contact page  */
+
+    .section-container-contact {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin: 0; 
+        padding: 0; 
+        background-image: none;
+        width: 100%;
+    }
+    .contact-right {
+        order: 1;
+        width: 100vw;
+        height: 450px;
+        width: 92%;
+        border: solid;
+        border-color: black;
+        margin-left: 0;
+        margin: 120px 0px 20px 0px;
+        /* background-color: rgba(35, 34, 34, 0.637); */
+    }
+
+    .contact-right h1 {
+        margin: 10px 0px 10px 10px;
+    }
+
+    .contact-right p {
+        margin-top: 10px;
+        margin-left: 10px; 
+        margin-right: 10px;
+    }
+    .contact-left {
+        margin: 0px 0px 20px 0px;
+        order: 2;
+        width: 92%;
+        border: solid;
+        border-color: red;
+    }
+
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+
+    .form-item {
+        width: 200px;
+        margin: 5px 5px 10px 5px;
+        
+    }
+}
