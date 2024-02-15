@@ -1,11 +1,4 @@
-/* 
-Took inspiration from::afterhttps://www.silverarrowband.com/?utm_id=&utm_medium=cpc&utm_source=google&utm_campaign=locations&utm_content=responsive_search_ad&utm_source_platform=search&utm_marketing_tactic=acquisition&utm_creative_format=text&utm_term=boston&a=&n=193&link_creation_date=2023-09-27&c=700&b=PerDay&lang=&gad_source=1&gbraid=0AAAAADvMV-7l92lm3ud6Wk39H8DIVjPeW&gclid=EAIaIQobChMIm-na96irhAMVcU5HAR0xPAkYEAAYASAAEgLBXPD_BwE
 
-All TEXT content generated from AI (would write prompt or throw in something I wrote to get info)
-
-
-
-*/
 * {
     color: #212427;
     font-family: sans-serif;
@@ -111,10 +104,7 @@ body {
     padding: 0px 50px 0px 50px;
 }
 
-.s2-right-container {
-    /* border-style: solid; */
-    
-}
+
 .s2 h1 {
     font-size: 2em;
 }
@@ -194,7 +184,7 @@ body {
     /* margin-top: 50px; */
     width: 100%;
     height: 1200px;
-    background-image: url("../images/site1/pexels-koolshooters-6983029.jpg");
+    background-image: url("../images/site1/disco-ball-hand.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -338,48 +328,65 @@ li {
 /* show page         --------------------  */
 .show-background {
     /* background-color: #000000; */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat;  */
-    /* background-position: center; */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    /* background-image: url("../images/site1/mic.jpg"); */
+    background-image:   url("../images/site1/pexels-steve-johnson-12583162.jpg");
+    background-image:   url("../images/site1/pexels-jv-m-13284497.jpg");
+  
 }
 
 #first-section {
-    margin-top: 100px;
-    height: 200px;
     padding: 20px;
+    height: auto;
     /* background-color: #ffffff; */
-   
- 
 }
+
+
 
 #first-section h2 {
     font-size: 20px;
+    /* color: rgb(227, 225, 225); */
+   
+}
+
+#first-section h1 {
+    margin-top: 95px;
+    /* color: rgb(232, 113, 192); */
 }
 
 #table-section {
     height: 500px;
-    /* margin: 0px 20px 0px 10px; */
+    display: flex;
+    justify-content: center;
+
 }
 
 #show-table {
-    width: 100%;
+    width: 80%;
+    margin-bottom: 200px;
 }
 
 tr {
     height: 50px;
+   
 }
 th {
     text-align: left;
-    padding-left: 5px;
-    background-color: rgba(228, 231, 233, 0.919);
+    background-color: rgba(228, 231, 233, 0.95);
+}
+
+td, tr, th {
+    padding: 5px;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #9e9b9bd1; 
+    background-color: #9e9b9be9; 
   }
 
   tbody tr:nth-child(odd) {
-    background-color: #d3cccc7c; 
+    background-color: #d3ccccc1; 
   }
 
 
