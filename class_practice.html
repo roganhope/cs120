@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS output </title>
+</head>
+<body>
+    <h1>JS output demo</h1>
+    <div id="result">&nbsp;</div>
+    <br/>
+    
+        <script>
+            document.write('<select name="sel1" id="sel1">')
+            for (i = 0; i <= 40; i += 5) {
+                document.write("<option>" + i + "</option>")
+            }
+            document.write('</select>')
+        </script>
+      
+        <br/>
+    </select>
+    <script>
+        // alert("hey there") // popout 
+        document.write("hello") // just writes 
+        // console.log("message to console") // logs message to console
+        document.getElementById("result").innerHTML="hey there"
+        // everything on this page can be treated like an object
+        for (i=0; i<5; i++)
+            document.write("<br/>hellooooo<br />")
+        
+    </script>
+
+    <script>
+        // result= confirm("are you sure?")
+    </script>
+    
+</body>
+</html>
