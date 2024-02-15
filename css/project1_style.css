@@ -1,4 +1,11 @@
+/* 
+Took inspiration from::afterhttps://www.silverarrowband.com/?utm_id=&utm_medium=cpc&utm_source=google&utm_campaign=locations&utm_content=responsive_search_ad&utm_source_platform=search&utm_marketing_tactic=acquisition&utm_creative_format=text&utm_term=boston&a=&n=193&link_creation_date=2023-09-27&c=700&b=PerDay&lang=&gad_source=1&gbraid=0AAAAADvMV-7l92lm3ud6Wk39H8DIVjPeW&gclid=EAIaIQobChMIm-na96irhAMVcU5HAR0xPAkYEAAYASAAEgLBXPD_BwE
 
+All TEXT content generated from AI (would write prompt or throw in something I wrote to get info)
+
+
+
+*/
 * {
     color: #212427;
     font-family: sans-serif;
@@ -186,10 +193,11 @@ body {
 .section-container-contact {
     /* margin-top: 50px; */
     width: 100%;
-    height: 100vh;
-    background-image: url("../images/site1/disco-hands.jpg");
+    height: 1200px;
+    background-image: url("../images/site1/pexels-koolshooters-6983029.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center top;
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -226,10 +234,7 @@ body {
     box-sizing: border-box;
 }
 
-/* #description {
-    resize: none;
-    height: 100px;
-} */
+
 
 .form-item::placeholder {
     padding-left: 6px; 
@@ -274,10 +279,9 @@ footer p {
 
 /* songpage  -----------------------------------------*/
 .songpage-content {
-    /* margin-top: 100px; */
     border-style: solid;
-    border-color: red;
-    /* background-color: #212427; */
+    border-color: #ffffff00;  /* i don't know why but the border is needed for the photo space so i am leaving it */
+
     width: 100%;
     background-image: url("../images/site1/bg-texture.jpg");
 }
@@ -286,10 +290,7 @@ footer p {
     margin-top: 100px;;
     width: 100%;
     height: 330px;
-    border-style: solid;
-    border-color: red;
-    color: rgb(251, 12, 12) !important;
-    background-color: rgba(166, 168, 169, 0.217);
+    background-color: rgba(151, 155, 157, 0.465);
 }
 .song-cards {
     width: 94%;
@@ -335,12 +336,19 @@ li {
 }
 
 /* show page         --------------------  */
+.show-background {
+    /* background-color: #000000; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat;  */
+    /* background-position: center; */
+}
 
 #first-section {
     margin-top: 100px;
     height: 200px;
     padding: 20px;
-  
+    /* background-color: #ffffff; */
+   
  
 }
 
@@ -350,7 +358,7 @@ li {
 
 #table-section {
     height: 500px;
-  margin: 0px 20px 0px 10px;
+    /* margin: 0px 20px 0px 10px; */
 }
 
 #show-table {
@@ -363,18 +371,20 @@ tr {
 th {
     text-align: left;
     padding-left: 5px;
-    background-color: rgba(190, 193, 196, 0.754);
+    background-color: rgba(228, 231, 233, 0.919);
 }
 
 tbody tr:nth-child(even) {
-    background-color: #9e9b9b15; 
+    background-color: #9e9b9bd1; 
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #d3cccc7c; 
   }
 
 
 
-
-
-/* ------------------------------------------------------ */
+/* -------------------------------------------------------------------------- */
 @media (max-width: 800px){
 
     /* navbar  */
@@ -387,7 +397,7 @@ tbody tr:nth-child(even) {
         margin: 0;
         padding: 0;
         border: solid;
-        color: yellow;
+        color: rgb(255, 255, 255);
         /* background-image: none; */
     }
 
@@ -437,25 +447,15 @@ tbody tr:nth-child(even) {
         align-items: center;
         height: auto;
         background-image: none;
-        background-color: ;
+        background-color: rgb(215, 187, 191);
       
     }
     .contact-container {
-        /* order: 1; */
         width: 100%;
-    
         height: 450px;
-        border: solid;
-        border-color: black;
         margin: 20px 0px 0px 0px;
-        border-style: solid;
-        color: red;
-
-        /* margin: 120px 0px 20px 0px; */
-        /* background-color: rgba(35, 34, 34, 0.637); */
     }
 
-   
     /* song page     */
 
     
@@ -482,8 +482,6 @@ tbody tr:nth-child(even) {
 
     .song p {
         font-size: 22px;
-    
-        /* color: rgb(255, 255, 255); */
     }
 
     /* shows page */
@@ -502,7 +500,6 @@ tbody tr:nth-child(even) {
 
     }
     
-
     table th {
         font-size: 15px;
         text-align: center;
@@ -514,14 +511,11 @@ tbody tr:nth-child(even) {
     }
 
     footer {
-        height: 50px;
+        height: 150px;
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
 
-    
-
-  
 
 }
