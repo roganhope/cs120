@@ -1,0 +1,473 @@
+
+* {
+    color: #212427;
+    font-family: sans-serif;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box; 
+}
+
+p {
+    font-size: 1em;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left:0;
+    padding:1.3rem 5%;;
+    background: rgba(247, 244, 244, 0.765);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+nav {
+    display: flex; 
+}
+
+header img {
+    width: 40px;;
+}
+
+.navbar a { 
+    font-size: 20px;
+    text-decoration: none; 
+    margin-right: 20px;
+}
+
+.navbar a:hover {
+    color: rgb(203, 147, 247); 
+    
+}
+
+body {
+    padding-top: 80px;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    margin: 0;
+    padding:0;
+}
+
+.s1 {
+    display: flex;
+    justify-content: center;
+}
+
+.s1 h1, .s1 h2 {
+    color: white;
+    text-align: center;
+    text-shadow: 
+        -1px -1px 0 #000000,  
+         1px -1px 0 #000000,
+        -1px  1px 0 #000000,
+         1px  1px 0 #000000; 
+         /* I looked up how to create the shadow effect */
+}
+
+.s1 {
+    height: 100vh;
+    background-image: url("../images/site1/disco-ball-header.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+.s1 h2 {
+    font-size: 4vw;
+}
+.s1 h1 {
+    font-size: 5vw;
+}
+
+.s2 {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 10px 10px 10px;
+}
+
+.s2-right-container {
+    width: 33vw;
+    padding: 5px;
+    display: flex; 
+    flex-direction: column; 
+    padding: 0px 50px 0px 50px;
+}
+
+.s2 h1 {
+    font-size: 2em;
+}
+
+.s2 p{
+    font-size: 1em;
+}
+
+.s2-left-container {
+    border-radius: 10px;
+}
+
+.s3 {
+    margin-top: 20px;
+    margin-bottom: 20px 0px 0px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 10px 10px 10px;
+    background-color: rgba(207, 207, 227, 0.556);
+}
+
+.s3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: 70vh;
+    border-style: solid;
+    padding: 10px 22px 10px 22px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgba(216, 214, 219, 0.615);
+    word-wrap: break-word;
+    border-radius: 10px 10px 0 0; 
+}
+
+.icon {
+   width: 25%;
+   height: 30%;
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+}
+
+.icon img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.s4 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px 80px 0px;
+}
+
+.s4 img {
+    width: 10vw;
+    height: auto;
+    
+}
+
+/* contact page ---------------------------------------- */
+.section-container-contact {
+    width: 100%;
+    height: 1200px;
+    background-image: url("../images/site1/disco-ball-hand.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+
+.contact-container {
+    margin-top: 100px;
+    width: 40%;
+    height:60vh;
+    background-color: rgba(255, 255, 255, 0.852);
+}
+
+.form-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.406);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+}
+
+.form-item {
+    width: 80%;
+    height: 40px;;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-item::placeholder {
+    padding-left: 6px; 
+}
+
+.form-item[type="submit"]{
+    background-color: rgba(61, 211, 146, 0.242);
+}
+
+.form-item:focus {
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.form-item[type="submit"]:focus {
+    background-color: green;
+    color: white;
+}
+
+.contact-container h1,
+.contact-container p {
+    margin: 20px; 
+}
+
+/* footer  -----------------------------------------*/
+footer {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-evenly;
+    padding:1.3rem 5%;
+    color: rgb(55, 51, 51);
+    height: 200px;
+}
+
+footer p {
+    color: rgb(61, 59, 59);
+    font-style: italic;
+}
+
+
+/* songpage  -----------------------------------------*/
+.songpage-content {
+    border-style: solid;
+    border-color: #ffffff00;  /* i don't know why but the border is needed for the photo space so i am leaving it */
+    width: 100%;
+    background-image: url("../images/site1/bg-texture.jpg");
+}
+.song-desc {
+    padding: 10px 50px 10px 50px;
+    margin-top: 100px;;
+    width: 100%;
+    height: 330px;
+    background-color: rgba(151, 155, 157, 0.465);
+}
+.song-cards {
+    width: 94%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 90px;;
+}
+ul {
+    list-style-type: none; 
+}
+
+li {
+    margin-top: 20px;
+}
+.song {
+    width: 45%;
+    height: 100px; 
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 30px;
+    margin: 10px 0px 0px 10px;
+    background-image: url("../images/site1/songcard-back.png");
+    border-radius: 10px; 
+    opacity: 0.7;
+    border: 1px solid #ccc; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.song img {
+    width: 75px;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.song p {
+    font-size: 25px;
+    align-self: center;
+}
+
+/* show page         --------------------  */
+.show-background {
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    /* background-image:   url("../images/site1/pexels-photo-255379.jpeg"); */
+  
+}
+
+#first-section {
+    padding: 20px;
+    height: auto;
+}
+
+#first-section h2 {
+    font-size: 20px;
+}
+
+#first-section h1 {
+    margin-top: 95px;
+}
+
+#table-section {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+
+}
+
+#show-table {
+    width: 80%;
+    margin-bottom: 200px;
+}
+
+tr {
+    height: 50px;
+   
+}
+th {
+    text-align: left;
+    background-color: rgba(228, 231, 233, 0.95);
+}
+
+td, tr, th {
+    padding: 5px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #9e9b9be9; 
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #d3ccccc1; 
+  }
+
+/* -------------------------------------------------------------------------- */
+@media (max-width: 800px){
+
+    .navbar a { 
+        font-size: 15px;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        border: solid;
+        color: rgb(255, 255, 255);
+        /* background-image: none; */
+    }
+
+    /* home page  */
+    .s2 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .s2-left-container {
+        order: 1; 
+        margin-bottom: 20px; 
+    }
+
+    .s2-right-container {
+        order: 2; 
+        width: 100%;
+        height: 600px;
+    }
+
+    .s3 {
+        flex-direction: column;
+        align-items: center;
+       
+    }
+    .s3-content {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .s3-content h1 {
+        font-size: 1.5em;;
+    }
+  
+    /* contact page  */
+
+    .section-container-contact {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        background-image: none;
+        background-color: rgb(215, 187, 191);
+      
+    }
+    .contact-container {
+        width: 100%;
+        height: 450px;
+        margin: 20px 0px 0px 0px;
+    }
+
+    /* song page     */
+    .song-cards {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .song-desc {
+        margin-top: 60px;
+        height: 500px !important ;
+    }
+    .song {
+        height: 60px;
+        width: 98%;
+    }
+
+    .song img {
+        grid-template-columns: fr;
+        width:30px;
+    }
+
+    .song p {
+        font-size: 22px;
+    }
+
+    /* shows page */
+    #first-section {
+    margin-top: 50px;
+    height: 22 0px;
+    }
+
+    #first-section h1 {
+        font-size: 30px;
+
+    }
+
+    #first-section h2 {
+        font-size: 15px;
+
+    }
+    
+    table th {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    table td  {
+        font-size: 15px;
+        padding-left: 2px;
+    }
+
+    footer {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+
+}

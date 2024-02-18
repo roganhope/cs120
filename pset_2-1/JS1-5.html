@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS1-1</title>
+    <link rel="stylesheet" type="text/css" href="/pset_2-1/pset_2-1_style.css">
+</head>
+
+<!--  Create a function that takes a number as a parameter. 
+    The function should display the "times table" for the number on the page. 
+    Create some code to test the function. You do not have to get the number from the user, 
+    but you DO need to have the number be a parameter to the function. -->
+
+<body>
+    <div class="container">
+        <h1>
+            JS1-5
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="/pset_2-1/JS1.html">return to index</a></p>
+        <p><a href="/pset_2-1/JS1-5.html">refresh page</a></p>
+
+        <script language="javascript">
+            // define the function
+            function timesTable(number) {
+                document.write(number + "<br>");
+                let returnArr = [];
+                //  orginally thought to add to an array but don't need it
+                console
+                for (let i = 1; i <= number; i++) {
+                    if (number % i === 0) {
+                        let times = number / i;
+                        document.write(i + " x " + times + "<br>");
+                    }
+                }
+            }
+
+            // prompt for a number
+            var num;
+            while (true) {
+                var input = prompt("What number would you like the times table of? ");
+                if (!isNaN(input)) {
+                    num = parseInt(input);
+                    break;
+                }
+                alert("Please enter a number");
+            }
+
+            timesTable(num);
+
+        </script>
+
+
+    </div>
+
+</body>
+
+</html>
