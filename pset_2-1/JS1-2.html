@@ -40,6 +40,20 @@ You do not have to format the output in any special way.  -->
             var cels = (faren - 32) * (5 / 9)
             alert("Temperature in Celsius: " + cels);
             // if I had the time, I would adjust the output to not display so many decimal places
+
+
+            var cels;
+            while (true) {
+                var input = prompt("What is the tempurature in Celsius");
+                if (!isNaN(input)) {
+                    cels = parseInt(input);
+                    break;
+                }
+                alert("Please enter a number");
+            }
+
+            var cels = cels * (9 / 5)  + 32
+            alert("Temperature in Celsius: " + cels);
         </script>
 
 

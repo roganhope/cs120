@@ -27,14 +27,16 @@
             // define the function
             function timesTable(number) {
                 document.write(number + "<br>");
-                let returnArr = [];
+                // let returnArr = [];
                 //  orginally thought to add to an array but don't need it
-                console
+                // console
+                var count = 1;
                 for (let i = 1; i <= number; i++) {
-                    if (number % i === 0) {
-                        let times = number / i;
-                        document.write(i + " x " + times + "<br>");
-                    }
+                    
+                    var product = i * count;
+                    document.write(i + " x " + count +  "= " + product+ "<br>");
+                    count ++;
+                    
                 }
             }
 
