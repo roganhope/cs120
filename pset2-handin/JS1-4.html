@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS1-4</title>
+    <link href="../css/pset_2-1_style.css" rel="stylesheet">
+</head>
+
+<!-- Get two numbers from the user that will represent a range (ex., 2 through 20)
+    .  On the page, display all of the odd numbers in the
+     range and display the sum of the numbers in the range. 
+      Do both parts with a single loop. 
+ -->
+
+<body>
+    <div class="container">
+        <h1>
+            JS1-4
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="JS1.html">return to index</a></p>
+        <p><a href="JS1-4.html">refresh page</a></p>
+
+        <script language="javascript">
+            var num1;
+            while (true) {
+                var input = prompt("Enter your first number");
+                if (!isNaN(input)) {
+                    num1 = parseInt(input);
+                    break;
+                }
+                alert("Please enter a number");
+            }
+
+            var num2
+            while (true) {
+                var input = prompt("Enter your second number");
+                if (!isNaN(input) && (num1 < parseInt(input))) {
+                    num2 = parseInt(input);
+                    break;
+                }
+                alert("Please enter a number that is greater than " + num1)
+            }
+            var sum = 0;
+            for (let i = num1; i <= num2; i++) {
+                if ((i % 2) > 0) {
+                    document.write(i + " ");
+                    sum += i;
+                }
+            }
+            document.write("<br>");
+            document.write("The sum is: " + sum);
+
+        </script>
+
+    </div>
+
+</body>
+
+</html>

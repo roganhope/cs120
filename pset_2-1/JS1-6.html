@@ -87,13 +87,23 @@ Create a second function to create the array, call count() and display the resul
                 }
 
                 let finalCount = count(arr, num4);
-                document.write("For value: " + num4 + "<br>");
-                // large arrays will rmeove the numbers off the screen so i am getting rid of it 
-                document.write("For array: " + arr + "<br>");
-                document.write("The count is: " + finalCount);
+            
+                document.write("<br>For value: " + num4 + "<br>");
+                document.write("The count is: " + finalCount + "<br>"); 
+                document.write("For the array that was generated below: " + "<br>");
 
+                // print array (in breaks so that doesn't go off the screen)
+                for (let i = 0; i < arr.length; i++) {
+                    if (i % 20 == 0 && i !== 0) {
+                        document.write("<br>");
+                    }
+                    document.write(arr[i] + ", ");
+                }
 
-
+                
+                
+                    
+       
             }
             buildArray();
         </script>
