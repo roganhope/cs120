@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-5</title>
+    <link href="../css/pset_2-2_style.css" rel="stylesheet">
+</head>
+
+<!-- Create a <select> element as a list (not a dropdown element- hint, set the size attribute of the <select> ).
+    The <select> should display a list of at least 10 states - use Javascript 
+        to create the <option> elements using an array of the states. 
+            By default, the first item should be selected.
+    Adjacent to the <select> list is a button labeled "Add State"
+    Below the list is a div with a border and a button labeled "Clear States"
+    When the user clicks "Add State", the selected state in the list should appear below in the div.  
+    The user may continue to add more states to the list in the div
+    When the user clicks "Clear States" the div should be emptied -->
+
+<body>
+    <div class="container">
+        <h1>
+            PS2-2-5
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="PS2-2.html">return to index</a></p>
+        <p><a href="PS2-2-5.html">refresh page</a></p>
+        <div>
+            <select name="" id="selectBox"></select>
+            <button id="add-state">Add State</button>
+        </div>
+        <div id="clear-states-box">
+
+        </div>
+        <button id="clear-button">Clear States</button>
+
+
+        <script language="javascript">
+            window.onload = function () {
+                var states = ["Massachusetts", "Maine", "New Hampshire", "Vermont", "Rhode Island", "Connecticut", "New York", "New Jersey", "Pennsylvania", "Delaware"];
+
+                // find the selection box by id, loop through the states
+                // create an option for each item, then add it to the box
+                var selectionBox = document.getElementById("selectBox");
+
+                states.forEach(function (state) {
+                    var option = document.createElement("option");
+                    option.text = state;
+                    selectionBox.add(option);
+                });
+
+
+                // add state tand clear button
+                document.getElementById("add-state").onclick = function () {
+                    var curr_option = selectionBox.options[selectionBox.selectedIndex].text;
+                    var div = document.getElementById("clear-states-box");
+                    div.innerHTML += "<p>" + curr_option + "</p>";
+
+                };
+                // clear
+                document.getElementById("clear-button").onclick = function () {
+                    var clearBox = document.getElementById("clear-states-box");
+                    var pTags = clearBox.querySelectorAll("p");
+
+                    pTags.forEach(function (pTag) {
+                        pTag.remove();
+                    });
+                };
+
+            };
+
+        </script>
+    </div>
+
+</body>
+
+</html>
