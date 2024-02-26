@@ -77,7 +77,11 @@
        
 
         // part 2: word guess + update where it is 
-        document.getElementById("check-my-guess-button").addEventListener("click", function(event){
+        // two submits bc my boyfriend is getting annoyed at the zoom in on submit clicking
+        document.getElementById("check-my-guess-button").addEventListener("click", handleSubmit);
+        document.getElementById("check-my-guess-button").addEventListener("touchstart", handleSubmit);
+
+        function handleSubmit(event) {
             event.preventDefault();
             if (game_over) {
                 alert("Game over! You cannot submit guesses anymore. Please press the 'Play Again' button.");
@@ -87,13 +91,13 @@
             if (guess.length !== 5) {
                 alert("Please enter a word with exactly 5 letters.");
             } else {
-                // alert("Your guess is: " + guess);
                 guess_number +=1;
                 document.getElementById("guess").value = "";
-                updateRow(guess_number, guess)
-                
+                // chaning to lowercase because on mobile it caps the first letter
+                var guess = guess.toLowerCase();
+                updateRow(guess_number, guess);
             }
-        });
+        }
 
 
         function updateRow(guess_num, guess){
@@ -154,7 +158,7 @@
 
             else if (guess_num ==6) {
                 game_over = true;
-                alert("you lost");
+                alert("You Lost! The word was " + winning_word + ".");
                 addPlayAgainButton()
             }
             
