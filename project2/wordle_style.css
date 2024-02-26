@@ -1,0 +1,85 @@
+
+/*
+green 
+#6baa65
+gold #cbb55a
+grey #818286
+*/
+
+:root {
+    --wordle-green: #6baa65;
+    --wordle-gold: #cbb55a;
+    --worldle-grey: #818286;
+    --worldle-white: white;
+}
+
+
+
+* {
+    font-family: sans-serif;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wordle-container {
+    /* background-color: rgb(0, 255, 34); */
+    /* border-style: solid; */
+    height: auto;
+    width: 350px;
+    margin-left: auto; 
+    margin-right: auto; 
+    justify-content: center;
+    /* color: red; */
+}
+
+.row-container {
+    width: 90%;
+    /* height: 60px; */
+    /* background-color: rgba(29, 188, 188, 0.692); */
+    /* border-style: solid; */
+    /* border-color: yellow; */
+    display: flex; 
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.letter {
+
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: #b4b5b8;
+    width: 50px;
+    height: 50px; 
+    box-sizing: border-box; 
+}
+
+.guess {
+    margin-top: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* from specs: create class to add when the color needs to change */
+
+.correct {
+    background-color: var(--wordle-green);
+}
+.wrong {
+    background-color: var(--worldle-grey);
+}
+.wrong-spot {
+    background-color: var(--wordle-gold);
+}
