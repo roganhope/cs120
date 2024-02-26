@@ -11,6 +11,8 @@ body {
     background-image: url("../pset_2-1/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(206, 199, 190);
 }
 
 ul {

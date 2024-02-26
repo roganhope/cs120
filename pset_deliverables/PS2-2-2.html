@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-2</title>
+    <link href="../css/pset_2-2_style.css" rel="stylesheet">
+</head>
+
+<!-- Create a string with several names separated by a comma - for example,  "Pat, Chris, Marlon, Ferncroft, Assunta"
+Using ONLY string or array methods,  display the names as a numbered list.  You may NOT use a for or a while loop.
+   Hint1:  first turn the string into an array
+   Hint2: Think about the repetitive part of a list - ie, <li>anb</li>
+   Hint3: Think about methods of the array object that iterate through the array -->
+
+<body>
+    <div class="container">
+        <h1>
+            PS2-2-2
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="PS2-2.html">return to index</a></p>
+        <p><a href="PS2-2-2.html">refresh page</a></p>
+        
+        <script>
+            var string_for_parsing = "I,really,love,banana,icecream";
+            var arr = string_for_parsing.split(",");
+            var ul = document.createElement('ul');
+           
+            arr.forEach(function(x){ // note to self: anonymous function here 
+                var list_item = document.createElement("li");
+                list_item.textContent = x;
+                ul.appendChild(list_item);
+            });
+            var container = document.querySelector('.container');
+            container.appendChild(ul);
+        </script>
+    </div>
+
+</body>
+
+</html>

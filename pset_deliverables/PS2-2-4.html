@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-4</title>
+    <link href="../css/pset_2-2_style.css" rel="stylesheet">
+</head>
+
+<!-- Copy the form from Problem 3 with the input box and the three buttons
+Rework the speak() event handler such that it does NOT have a parameter.  Instead, use the clicked button text to get the greeting prefix
+Assign the event handler within window.onload -->
+
+<body>
+    <div class="container">
+        <h1>
+            PS2-2-4
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="PS2-2.html">return to index</a></p>
+        <p><a href="PS2-2-4.html">refresh page</a></p>
+        
+        <form action="">
+            <input type="text" id="name" placeholder="Please write your name">
+            <button type="button">Hello</button>
+            <button type="button">Good Bye</button>
+            <button type="button">Greetings</button>
+        </form>
+        
+        <script language="javascript">
+
+            window.onload = function() {
+                var buttons = document.querySelectorAll("button[type=button]");
+
+                buttons.forEach(function(button){
+                    button.addEventListener('click', function(){
+                        var prefix = button.textContent;
+                        speak(prefix);
+                    });
+                });
+            };
+
+            function speak(prefix) {
+            var name = document.getElementById("name").value;
+            alert(prefix + " " + name + " !");
+            }
+          </script>
+    </div>
+
+</body>
+
+</html>

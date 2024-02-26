@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../project2/wordle_style.css" rel="stylesheet">
+    <title>World By Hope</title>
+</head>
+<body>
+    <div class="body-container">
+        <h1>Welcome to Worldle</h1>
+        <p>By Hope Rogan</p>
+    <div class="wordle-container">
+        <div class="row-container" id="row-container-1">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row-container" id="row-container-2">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row-container" id="row-container-3">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row-container" id="row-container-4">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row-container" id="row-container-5">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+        <div class="row-container" id="row-container-5">
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+            <div class="letter"></div>
+        </div>
+    </div>
+
+    <div class="guess">
+        <form action="" id="guess-form">
+            <label for="guess">What is your guess?</label><br>
+            <input type="text" id="guess" name="guess" ><br>
+            <input type="submit" id="check-my-guess-button" value="Check my guess">
+        </form>
+    </div>
+    </div>
+    <script>
+    
+
+        var game_over = false;
+        // I asked chatgpt for this  dicitonary ain't nobody got time to write out 30 random words and format it on top of this
+        // prevent arthritis from extra typing 2024
+        const cuteWords = {1:"smile",2:"happy",3:"angel",4:"sweet",5:"lovey",6:"puppy",7:"teddy",8:"snugg",9:"bunny",10:"fairy",11:"peach",12:"sunny",13:"cutie",14:"cupid",15:"fluff",16:"hugly",17:"kitty",18:"candy",19:"honey",20:"dream",21:"squee",22:"cuddl",23:"heart",24:"dolly",25:"funny",26:"magic",27:"petal",28:"sprin",29:"sweet",30:"winky"};
+       
+        var guess_number = 0; // this will track which row + guess we are on 
+        var winning_word = pickRandomWord(cuteWords);
+        alert("winning word for debugging is: " + winning_word);
+       
+
+        // part 2: word guess + update where it is 
+        document.getElementById("check-my-guess-button").addEventListener("click", function(event){
+            event.preventDefault();
+            if (game_over) {
+                alert("Game over! You cannot submit guesses anymore. Please press the 'Play Again' button.");
+                return;
+            }
+            var guess = document.getElementById("guess").value.trim();
+            if (guess.length !== 5) {
+                alert("Please enter a word with exactly 5 letters.");
+            } else {
+                // alert("Your guess is: " + guess);
+                document.getElementById("guess").value = "";
+                guess_number +=1;
+                updateRow(guess_number, guess)
+            }
+        });
+
+
+        function updateRow(guess_num, guess){
+            // grab all the letter divs
+            var row_id = "#row-container-" + guess_num;
+            var letters_in_row = document.querySelectorAll(row_id + " .letter");
+
+            // check each letter and update accordingly
+            correct_letters = 0;
+            letter_pos = 0;
+            letters_in_row.forEach(function(letter) {
+                
+         
+                if (winning_word[letter_pos] == guess[letter_pos]){
+                    
+                    correct_letters +=1;
+                    writeLetterToHtml(guess[letter_pos], letter, "correct");
+                }
+
+                else if (winning_word[letter_pos] != guess[letter_pos] && winning_word.includes(guess[letter_pos])){
+                    writeLetterToHtml(guess[letter_pos], letter, "wrong-spot");
+                }
+               
+                else {
+                    writeLetterToHtml(guess[letter_pos], letter, "wrong");
+                }
+                letter_pos +=1;
+            });
+
+            if (correct_letters == 5) {  
+                game_over = true;
+                alert("You Won");
+                addPlayAgainButton()
+                return;
+            }
+
+            if (guess_num == 6) {
+                game_over = true;
+                alert("you lost");
+                addPlayAgainButton()
+            }
+            
+            
+        }
+        
+        function writeLetterToHtml(letter, div, classname){
+            div.classList.add(classname);
+            var pTag = document.createElement("p"); 
+            pTag.textContent = letter;
+            div.appendChild(pTag);
+        }
+
+        function resetGame() {
+            // reset styling, guess number and change winning word
+            document.querySelectorAll('.row-container').forEach(function(row) {
+            row.querySelectorAll('.letter').forEach(function(letter) {
+                letter.querySelectorAll('p').forEach(function(p) {
+                    p.remove();
+                });
+                letter.classList.remove('correct', 'wrong', 'wrong-spot');
+            });
+            });
+            guess_number = 0;
+            winning_word = pickRandomWord(cuteWords);
+            game_over = false;
+        }
+
+        function pickRandomWord(words) {
+            var keys = Object.keys(words);
+            var index = Math.floor(Math.random() * keys.length);
+            var k = keys[index];
+            return words[k];
+        }
+
+        function addPlayAgainButton() {
+            var div = document.getElementById("guess-form");
+            var button = document.createElement("button");
+            button.id = "play-again-button"
+            button.textContent = "Play Again";
+            div.appendChild(button);
+        }
+           
+
+
+    
+    </script>
+    
+</body>
+</html>

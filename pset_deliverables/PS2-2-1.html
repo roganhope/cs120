@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-1</title>
+    <link href="../css/pset_2-2_style.css" rel="stylesheet">
+</head>
+
+<!-- Use prompt() to get a sentence from the user
+Use split to create an array in which each element
+ of the array is a word in the sentence (you may assume spaces between words)
+Use the length property of the array to determine the number of words in the sentence
+Display the number of words. -->
+
+<body>
+    <div class="container">
+        <h1>
+            PS2-2-1
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="PS2-2.html">return to index</a></p>
+        <p><a href="PS2-2-1.html">refresh page</a></p>
+        
+        <script language="javascript">
+            var sentence = prompt("Please enter a sentence separated by spaces")
+            var arr = sentence.split(" ") // split by the spaces since we can assume that 
+            alert("The sentence has " + arr.length + " words.");
+            document.write(sentence);
+            document.write("<br>")
+            document.write("The sentence has " + arr.length + " words.");
+        </script>
+    </div>
+
+</body>
+
+</html>

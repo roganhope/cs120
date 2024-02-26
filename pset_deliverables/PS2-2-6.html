@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-6 </title>
+    <link href="../css/pset_2-2_style.css" rel="stylesheet">
+</head>
+
+   
+
+<body>
+    <div class="container">
+        <h1>
+            PS2-2-6 (extra credit)
+        </h1>
+        <h2> Hope Rogan</h2>
+        <p><a href="PS2-2.html">return to index</a></p>
+        <p><a href="PS2-2-6.html">refresh page</a></p>
+        <div>
+            <select name="" id="selectBox"></select>
+            <button id="add-state">Add State</button>
+        </div>
+        <div id="clear-states-box">
+
+        </div>
+        <button id="clear-button">Clear States</button>
+
+
+        <script language="javascript">
+            window.onload = function () {
+                var states = ["Massachusetts", "Maine", "New Hampshire", "Vermont", "Rhode Island", "Connecticut", "New York", "New Jersey", "Pennsylvania", "Delaware"];
+
+                // find the selection box by id, loop through the states
+                // create an option for each item, then add it to the box
+                var selectionBox = document.getElementById("selectBox");
+
+                states.forEach(function (state) {
+                    var option = document.createElement("option");
+                    option.text = state;
+                    selectionBox.add(option);
+                });
+
+
+                // add state tand clear button
+                // EXTRA CREDIT: ADD STATE
+                document.getElementById("add-state").onclick = function () {
+                    var curr_option = selectionBox.options[selectionBox.selectedIndex].text;
+                    var div = document.getElementById("clear-states-box");
+                    div.innerHTML += "<p>" + curr_option + "</p>";
+
+                    // 1. add functionality to remove the state 
+                    selectionBox.remove(selectionBox.selectedIndex);
+
+                };
+                // clear
+                document.getElementById("clear-button").onclick = function () {
+                    var clearBox = document.getElementById("clear-states-box");
+                    var pTags = clearBox.querySelectorAll("p");
+
+                    pTags.forEach(function (pTag) {
+                        var pTagText = pTag.textContent; // do this first before removing it I am guessing
+                        pTag.remove();
+
+                        // 2. get the info from ptag and and it back as an option
+                        var option = document.createElement("option");
+                        option.text = pTagText;
+                        selectionBox.add(option);
+                    });
+                };
+
+            };
+
+        </script>
+    </div>
+
+</body>
+
+</html>
