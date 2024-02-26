@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../project2/wordle_style.css" rel="stylesheet">
-    <title>World By Hope</title>
+    <title>Worlde By Hope</title>
 </head>
 <body>
     <div class="body-container">
@@ -47,7 +47,7 @@
             <div class="letter"></div>
             <div class="letter"></div>
         </div>
-        <div class="row-container" id="row-container-5">
+        <div class="row-container" id="row-container-6">
             <div class="letter"></div>
             <div class="letter"></div>
             <div class="letter"></div>
@@ -65,15 +65,14 @@
     </div>
     </div>
     <script>
-    
-
-        var game_over = false;
         // I asked chatgpt for this  dicitonary ain't nobody got time to write out 30 random words and format it on top of this
         // prevent arthritis from extra typing 2024
         const cuteWords = {1:"smile",2:"happy",3:"angel",4:"sweet",5:"lovey",6:"puppy",7:"teddy",8:"snugg",9:"bunny",10:"fairy",11:"peach",12:"sunny",13:"cutie",14:"cupid",15:"fluff",16:"hugly",17:"kitty",18:"candy",19:"honey",20:"dream",21:"squee",22:"cuddl",23:"heart",24:"dolly",25:"funny",26:"magic",27:"petal",28:"sprin",29:"sweet",30:"winky"};
-       
+        // const cuteWords = {1:"happy"}
+        var game_over = false; // for guess button issue 
         var guess_number = 0; // this will track which row + guess we are on 
         var winning_word = pickRandomWord(cuteWords);
+        
         // alert("winning word for debugging is: " + winning_word);
        
 
@@ -89,32 +88,55 @@
                 alert("Please enter a word with exactly 5 letters.");
             } else {
                 // alert("Your guess is: " + guess);
-                document.getElementById("guess").value = "";
                 guess_number +=1;
+                document.getElementById("guess").value = "";
                 updateRow(guess_number, guess)
+                
             }
         });
 
 
         function updateRow(guess_num, guess){
             // grab all the letter divs
-            var row_id = "#row-container-" + guess_num;
+            var row_id = "#row-container-" + guess_num; // guess number has to be indexed at 1
+            console.log("working on row " + row_id)
+            
             var letters_in_row = document.querySelectorAll(row_id + " .letter");
 
-            // check each letter and update accordingly
+            // first remove correct letters from the letter array to prevent miss-gold colored letters
+            var letter_arr = winning_word.split("")
+            for (var i = 0; i < 5; i++) {
+                if (guess[i] == winning_word[i]) {
+                    var index = letter_arr.indexOf(guess[i]);
+                    if (index !== -1) {
+                        letter_arr.splice(index, 1);
+                    }
+
+                }
+            }
+            
+            
+            // check each letter div and update accordingly
             correct_letters = 0;
             letter_pos = 0;
+            
+        
             letters_in_row.forEach(function(letter) {
-                
-         
+                console.log(letter_pos)
+                console.log("working on letter " + guess[letter_pos])
                 if (winning_word[letter_pos] == guess[letter_pos]){
-                    
-                    correct_letters +=1;
                     writeLetterToHtml(guess[letter_pos], letter, "correct");
+                    correct_letters +=1;
                 }
 
-                else if (winning_word[letter_pos] != guess[letter_pos] && winning_word.includes(guess[letter_pos])){
+                else if (winning_word[letter_pos] != guess[letter_pos] && letter_arr.includes(guess[letter_pos])){
                     writeLetterToHtml(guess[letter_pos], letter, "wrong-spot");
+                    // remove from letter arr so we don't get duplicate golds 
+                    // ex if you have happy and guessed three p's in the wrong spot, it will only tell you two are right
+                    var index = letter_arr.indexOf(guess[letter_pos]);
+                    if (index !== -1) {
+                        letter_arr.splice(index, 1);
+                    }
                 }
                
                 else {
@@ -127,10 +149,10 @@
                 game_over = true;
                 alert("You Won");
                 addPlayAgainButton()
-                return;
+                
             }
 
-            if (guess_num == 6) {
+            else if (guess_num ==6) {
                 game_over = true;
                 alert("you lost");
                 addPlayAgainButton()
@@ -140,6 +162,7 @@
         }
         
         function writeLetterToHtml(letter, div, classname){
+            // to do for fun: animation 
             div.classList.add(classname);
             var pTag = document.createElement("p"); 
             pTag.textContent = letter;

@@ -79,12 +79,15 @@ form {
 
 .correct {
     background-color: var(--wordle-green);
+    border-style: none;
 }
 .wrong {
     background-color: var(--worldle-grey);
+    border-style: none;
 }
 .wrong-spot {
     background-color: var(--wordle-gold);
+    border-style: none;
 }
 
 .letter p {
