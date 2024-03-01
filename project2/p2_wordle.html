@@ -59,28 +59,26 @@
     <div class="guess">
         <form action="" id="guess-form">
             <label for="guess">What is your guess?</label><br>
-            <input type="text" id="guess" name="guess" ><br>
+            <input maxlength="5" type="text" id="guess" name="guess" ><br>
             <input type="submit" id="check-my-guess-button" value="Check my guess">
         </form>
     </div>
     </div>
     <script>
         // I asked chatgpt for this  dicitonary ain't nobody got time to write out 30 random words and format it on top of this
-        // prevent arthritis from extra typing 2024
         const cuteWords = {1:"smile",2:"happy",3:"angel",4:"sweet",5:"lovey",6:"puppy",7:"teddy",8:"snugg",9:"bunny",10:"fairy",11:"peach",12:"sunny",13:"cutie",14:"cupid",15:"fluff",16:"hugly",17:"kitty",18:"candy",19:"honey",20:"dream",21:"squee",22:"cuddl",23:"heart",24:"dolly",25:"funny",26:"magic",27:"petal",28:"sprin",29:"sweet",30:"winky"};
-        // const cuteWords = {1:"happy"}
+       
         var game_over = false; // for guess button issue 
         var guess_number = 0; // this will track which row + guess we are on 
         var winning_word = pickRandomWord(cuteWords);
-        
-        // alert("winning word for debugging is: " + winning_word);
+        console.log("winning word for debugging is: " + winning_word);
+       
        
 
-        // part 2: word guess + update where it is 
-        // two submits bc my boyfriend is getting annoyed at the zoom in on submit clicking
+        // TO DO edit font size to 16 so that apple ios doesn't automaticlly zoom in
         document.getElementById("check-my-guess-button").addEventListener("click", handleSubmit);
-        document.getElementById("check-my-guess-button").addEventListener("touchstart", handleSubmit);
-
+      
+        // submit event 
         function handleSubmit(event) {
             event.preventDefault();
             if (game_over) {
@@ -99,6 +97,7 @@
             }
         }
 
+        // helper functions
 
         function updateRow(guess_num, guess){
             // grab all the letter divs
@@ -128,11 +127,14 @@
             letters_in_row.forEach(function(letter) {
                 console.log(letter_pos)
                 console.log("working on letter " + guess[letter_pos])
+
+                // correct match
                 if (winning_word[letter_pos] == guess[letter_pos]){
                     writeLetterToHtml(guess[letter_pos], letter, "correct");
                     correct_letters +=1;
                 }
 
+                // wrong spot letter
                 else if (winning_word[letter_pos] != guess[letter_pos] && letter_arr.includes(guess[letter_pos])){
                     writeLetterToHtml(guess[letter_pos], letter, "wrong-spot");
                     // remove from letter arr so we don't get duplicate golds 
@@ -143,6 +145,7 @@
                     }
                 }
                
+                // not in the word #loser
                 else {
                     writeLetterToHtml(guess[letter_pos], letter, "wrong");
                 }
@@ -156,7 +159,7 @@
                 
             }
 
-            else if (guess_num ==6) {
+            else if (guess_num == 6 ) {
                 game_over = true;
                 alert("You Lost! The word was " + winning_word + ".");
                 addPlayAgainButton()
@@ -165,6 +168,8 @@
             
         }
         
+         
+        // takes in the p letter, div it needs to go in, and classname to add
         function writeLetterToHtml(letter, div, classname){
             // to do for fun: animation 
             div.classList.add(classname);
@@ -188,6 +193,7 @@
             game_over = false;
         }
 
+        // picks random words from the dictionary
         function pickRandomWord(words) {
             var keys = Object.keys(words);
             var index = Math.floor(Math.random() * keys.length);
@@ -195,14 +201,75 @@
             return words[k];
         }
 
+        // adds teh paly again buttton, had to do this twice so I made it a function
         function addPlayAgainButton() {
             var div = document.getElementById("guess-form");
             var button = document.createElement("button");
             button.id = "play-again-button"
             button.textContent = "Play Again";
+            updateCookiesAfterGame(guess_number)
+            guess_number = 0; // reset guess number
             div.appendChild(button);
+
+            // gray out other button - TO DO Extra
+            var guessButton = document.querySelector('#guess-form input[type="submit"]');
         }
-           
+
+        // cookies for average guess number
+        // numGames, sum, and runningAverage
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function updateCookiesAfterGame(numGuesses) {
+            console.log("updating guess number num guesses for this round is " + guess_number)
+            var numGames = getCookie("numGames");
+        
+            if (numGames === "") {
+                console.log("first round")
+                // set cookies to current values and return
+                console.log("first game results ", 1, numGuesses, numGuesses)
+                setCookie("numGames", 1);
+                setCookie("sum", numGuesses);
+                setCookie("avg", numGuesses);
+                return;
+            }
+
+            
+            numGames = parseInt(getCookie("numGames"));
+            sum = parseInt(getCookie("sum"));
+
+            numGames++;
+            sum += numGuesses;
+            var newAverage = sum / numGames;
+            
+            console.log("RETURNING USER: " + "NUMGAMES: " + numGames + " SUM: " + sum + "AVERAGE: " + newAverage)
+
+            setCookie("numGames", numGames);
+            setCookie("sum", sum);
+            setCookie("avg", newAverage);
+        }
+
+                
 
 
     

@@ -97,3 +97,12 @@ form {
 #guess-form input[type="submit"] {
     width: 150px;
 }
+
+p {
+    font-size: 17px;
+}
+
+#play-again-button {
+    width: 150px;
+    margin-top: 5px;
+}
