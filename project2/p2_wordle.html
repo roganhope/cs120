@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../project2/wordle_style.css" rel="stylesheet">
-    <title>Worlde By Hope</title>
+    <title>Wordle By Hope</title>
 </head>
 <body>
     <div class="body-container">
@@ -63,21 +63,38 @@
             <input type="submit" id="check-my-guess-button" value="Check my guess">
         </form>
     </div>
+
+    <div class="avg-guess">
+       
+    </div>
     </div>
     <script>
-        // I asked chatgpt for this  dicitonary ain't nobody got time to write out 30 random words and format it on top of this
-        const cuteWords = {1:"smile",2:"happy",3:"angel",4:"sweet",5:"lovey",6:"puppy",7:"teddy",8:"snugg",9:"bunny",10:"fairy",11:"peach",12:"sunny",13:"cutie",14:"cupid",15:"fluff",16:"hugly",17:"kitty",18:"candy",19:"honey",20:"dream",21:"squee",22:"cuddl",23:"heart",24:"dolly",25:"funny",26:"magic",27:"petal",28:"sprin",29:"sweet",30:"winky"};
-       
+        
+        // declare global maintenance variables
         var game_over = false; // for guess button issue 
         var guess_number = 0; // this will track which row + guess we are on 
-        var winning_word = pickRandomWord(cuteWords);
-        console.log("winning word for debugging is: " + winning_word);
-       
-       
+        var winning_word = ""; // var to hold winning word until api loads
 
+        // console.log("winning word for debugging is: " + winning_word);
+        window.onload = async function() {
+            updateAverageGuessTag();
+            console.log("firing")
+            try {
+                winning_word = await getRandomWord();
+                console.log("Winning word for debugging is:", winning_word);
+                // Your code that uses the winning word goes here
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+       
         // TO DO edit font size to 16 so that apple ios doesn't automaticlly zoom in
         document.getElementById("check-my-guess-button").addEventListener("click", handleSubmit);
-      
+
+
+    
+
+
         // submit event 
         function handleSubmit(event) {
             event.preventDefault();
@@ -97,8 +114,8 @@
             }
         }
 
-        // helper functions
-
+     
+        // updates row one at a time
         function updateRow(guess_num, guess){
             // grab all the letter divs
             var row_id = "#row-container-" + guess_num; // guess number has to be indexed at 1
@@ -118,12 +135,10 @@
                 }
             }
             
-            
             // check each letter div and update accordingly
             correct_letters = 0;
             letter_pos = 0;
             
-        
             letters_in_row.forEach(function(letter) {
                 console.log(letter_pos)
                 console.log("working on letter " + guess[letter_pos])
@@ -152,20 +167,18 @@
                 letter_pos +=1;
             });
 
+            // game over catches
             if (correct_letters == 5) {  
                 game_over = true;
                 alert("You Won");
-                addPlayAgainButton()
-                
+                addPlayAgainButton();        
             }
 
             else if (guess_num == 6 ) {
                 game_over = true;
                 alert("You Lost! The word was " + winning_word + ".");
                 addPlayAgainButton()
-            }
-            
-            
+            }     
         }
         
          
@@ -178,8 +191,9 @@
             div.appendChild(pTag);
         }
 
+        // reset styling, guess number and change winning word
         function resetGame() {
-            // reset styling, guess number and change winning word
+            
             document.querySelectorAll('.row-container').forEach(function(row) {
             row.querySelectorAll('.letter').forEach(function(letter) {
                 letter.querySelectorAll('p').forEach(function(p) {
@@ -193,15 +207,9 @@
             game_over = false;
         }
 
-        // picks random words from the dictionary
-        function pickRandomWord(words) {
-            var keys = Object.keys(words);
-            var index = Math.floor(Math.random() * keys.length);
-            var k = keys[index];
-            return words[k];
-        }
-
+     
         // adds teh paly again buttton, had to do this twice so I made it a function
+        // this kind of ended up as an entire reset but I do not want to change the function name
         function addPlayAgainButton() {
             var div = document.getElementById("guess-form");
             var button = document.createElement("button");
@@ -210,11 +218,11 @@
             updateCookiesAfterGame(guess_number)
             guess_number = 0; // reset guess number
             div.appendChild(button);
-
             // gray out other button - TO DO Extra
-            var guessButton = document.querySelector('#guess-form input[type="submit"]');
+            // var guessButton = document.querySelector('#guess-form input[type="submit"]');
         }
 
+        // COOKIES
         // cookies for average guess number
         // numGames, sum, and runningAverage
         function setCookie(cname, cvalue, exdays) {
@@ -261,16 +269,46 @@
             numGames++;
             sum += numGuesses;
             var newAverage = sum / numGames;
-            
+
             console.log("RETURNING USER: " + "NUMGAMES: " + numGames + " SUM: " + sum + "AVERAGE: " + newAverage)
 
             setCookie("numGames", numGames);
             setCookie("sum", sum);
             setCookie("avg", newAverage);
+            updateAverageGuessTag()
         }
 
-                
+        function updateAverageGuessTag() {
+            var avg_guesses = getCookie("avg")
+            if (avg_guesses == ""){
+                avg_guesses = 0;
+            }
+            else {
+                avg_guesses = Math.round(avg_guesses)
+            }
+            var pTag = document.createElement("p");
+            pTag.textContent = "Guess Average: " + avg_guesses;
+            document.querySelector(".avg-guess").innerHTML="";
+            document.querySelector(".avg-guess").appendChild(pTag);
+        }
 
+        // API for getting a random 5 letter word 
+        // docs say to use /word to grab a single random word (to keep it quick)
+        async function getRandomWord() {
+            try {
+                const response = await fetch('https://random-word-api.herokuapp.com/word?length=5');
+                if (!response.ok) {
+                    throw new Error('network');
+                }
+                const data = await response.json();
+                const randomWord = data[0];
+    
+                return randomWord;
+            } catch (error) {
+                console.error( error);
+                throw error;
+            }
+        }
 
     
     </script>
