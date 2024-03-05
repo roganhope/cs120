@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-3</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
+</head>
+
+
+<body>
+    <div class="container">
+   
+        <h2 id="name-heading"> Hope Rogan</h2>
+
+        <script>
+            var songs = {};
+            // where to place the songs:
+            var mainContainer = document.querySelector('.container');
+            $(document).ready(function() {
+                  $.get("songs.json", function(data){
+                    var jsonData = data;
+                    jsonData.songs.forEach(function(song) {
+
+                        var title = song.title;
+                        var artist = song.artist;
+                        var year = song.year;
+                        var genres = song.genres;
+
+
+                        var vars = {
+                            artist: artist,
+                            year: year,
+                            genres: genres
+                        }; 
+
+
+                        songs[vars] = vars;
+                        console.log(songs[vars]);
+
+                        // now actually add them to the page 
+                        // song container 
+                        var container = document.createElement('div');
+                        container.classList.add('song-container');     
+
+                        // title 
+                        var title = document.createElement('p');
+                        title.classList.add('title');
+                        title.textContent = song.title;
+                        container.appendChild(title);
+
+                        // artist 
+                        var innerContainer = document.createElement('div');
+                        var artist = document.createElement('p');
+                        artist.innerHTML = 'Artist: ' + song.artist 
+                        container.appendChild(artist);
+                        
+                        // genres
+                        var genres = document.createElement('p');
+                        genres.innerHTML = 'Genres: ' + song.genres.join(', ');
+                        container.appendChild(genres);
+
+                        // year 
+                        var year = document.createElement('p');
+                        year.textContent = 'Released ' + song.year;
+                        container.appendChild(year);
+
+                        // now add it to the page 
+                        mainContainer.appendChild(container);
+
+                    })
+                  })
+                });
+
+        </script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-3</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div class="container">
+   
+        <h2> Hope Rogan</h2>
+
+  
+        <script language="javascript">
+            var songJson = {
+                "songs": [
+      {
+        "title": "Besame",
+        "artist": "Teo",
+        "year": 2021,
+        "genres": ["Latin", "Reggaeton"]
+      },
+      {
+        "title": "Silk and Cologne",
+        "artist": "Offset",
+        "year": 2021,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Blue Notes",
+        "artist": "Meek Mill",
+        "year": 2016,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Pepas (Tiesto Remix)",
+        "artist": "Farruko",
+        "year": 2021,
+        "genres": ["Dance", "Reggaeton", "Electronic"]
+      },
+      {
+        "title": "Lift Me Up",
+        "artist": "Rihanna",
+        "year": 2012,
+        "genres": ["Pop", "R&B"]
+      },
+      {
+        "title": "Because You Move Me",
+        "artist": "Tinlicker",
+        "year": 2021,
+        "genres": ["Electronic", "House"]
+      },
+      {
+        "title": "Thru My Hair",
+        "artist": "Teo",
+        "year": 2022,
+        "genres": ["R&B", "Soul"]
+      },
+      {
+        "title": "Mystery Lady",
+        "artist": "Masego",
+        "year": 2020,
+        "genres": ["R&B", "Jazz"]
+      },
+      {
+        "title": "Pride Is the Devil",
+        "artist": "J. Cole",
+        "year": 2021,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Maneater",
+        "artist": "Daryl Hall & John Oates",
+        "year": 1982,
+        "genres": ["Pop", "Rock"]
+      }
+    ]
+            }
+            var str = JSON.stringify(songJson);
+            var container = document.querySelector('.container');
+            var pTag = document.createElement('p');
+            pTag.textContent = str 
+            container.appendChild(pTag);
+        </script>
+    </div>
+
+</body>
+
+</html>

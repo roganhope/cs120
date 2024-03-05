@@ -1,0 +1,72 @@
+* {
+    font-family: sans-serif;
+    color: #0E1111;
+}
+
+body {
+    /* height: 100%; */
+    /* border-style: solid; */
+    display: flex;
+    /* justify-content: center; */
+    /* background-image: url("../pset_2-1/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(206, 199, 190);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:hover {
+    color: rgb(2, 158, 2);
+}
+
+.container {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 80%;
+    min-height: 850px;
+    border-style: solid;
+    margin: 20px 10px 10px 10px; 
+    background-color: rgba(236, 234, 234, 0.957);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    word-wrap: break-word;
+    
+}
+
+select {
+    width: 200px;
+    /* height: 100px; */
+}
+
+#clear-states-box {
+    border-style: solid;
+    min-height: 200px;
+    min-width: 200px;
+
+}
+
+.song-container {
+    margin-top: 40px;
+    margin-left: 30px;
+    /* max-width: 200px; */
+   
+}
+
+#name-heading {
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+
+}
+
+/* .song-section {
+    border-style: solid;
+    min-height: 100px;
+} */

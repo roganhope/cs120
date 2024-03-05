@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS2-2-3</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <h2 id="name-heading"> Hope Rogan</h2>
+
+        <div class="genre-selector">
+            <select name="genre-select" id="select-genre"></select>
+            <button id="filter-button">Filter</button>
+
+        </div>
+        <div class="song-section">
+
+        </div>
+        <script>
+            var songs = {};
+            var masterGenre = [];
+                // have to use jquery for this section 
+            $(document).ready(function () {
+                $.get("songs.json", function (data) {
+                    var jsonData = data;
+                    jsonData.songs.forEach(function (song) {
+                        var title = song.title;
+                        var genres = song.genres;
+
+                        var vars = {
+                            title: title,
+                            genres: genres
+                        };
+                        songs[title] = vars;
+
+                       
+                        genres.forEach(function (genre) {
+                            if (!masterGenre.includes(genre)) {
+                                masterGenre.push(genre);
+                            }
+                        });
+                    });
+
+                  
+                    var selectElement = $("#select-genre");
+                    masterGenre.forEach(function (genre) {
+                        selectElement.append(`<option value="${genre}">${genre}</option>`);
+                    });
+                });
+
+
+                $("#filter-button").click(function () {
+                    var currGenre = $("#select-genre").val();
+                    var filteredSongs = [];
+
+      
+                    Object.keys(songs).forEach(function (title) {
+                        if (songs[title].genres.includes(currGenre)) {
+                            filteredSongs.push(title);
+                        }
+                    });
+
+                    console.log(filteredSongs);
+
+        
+                    var songContainer = $(".song-section");
+                    songContainer.empty();
+                    if (filteredSongs.length > 0) {
+                        var ul = $("<ul></ul>");
+                        filteredSongs.forEach(function (title) {
+                            ul.append("<li>" + title + "</li>");
+                        });
+                        songContainer.append(ul);
+                    }
+                });
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>

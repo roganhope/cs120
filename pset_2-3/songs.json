@@ -1,0 +1,65 @@
+{
+    "songs": [
+      {
+        "title": "Besame",
+        "artist": "Teo",
+        "year": 2021,
+        "genres": ["Latin", "Reggaeton"]
+      },
+      {
+        "title": "Silk and Cologne",
+        "artist": "Offset",
+        "year": 2021,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Blue Notes",
+        "artist": "Meek Mill",
+        "year": 2016,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Pepas (Tiesto Remix)",
+        "artist": "Farruko",
+        "year": 2021,
+        "genres": ["Dance", "Reggaeton", "Electronic"]
+      },
+      {
+        "title": "Lift Me Up",
+        "artist": "Rihanna",
+        "year": 2012,
+        "genres": ["Pop", "R&B"]
+      },
+      {
+        "title": "Because You Move Me",
+        "artist": "Tinlicker",
+        "year": 2021,
+        "genres": ["Electronic", "House"]
+      },
+      {
+        "title": "Thru My Hair",
+        "artist": "Teo",
+        "year": 2022,
+        "genres": ["R&B", "Soul"]
+      },
+      {
+        "title": "Mystery Lady",
+        "artist": "Masego",
+        "year": 2020,
+        "genres": ["R&B", "Jazz"]
+      },
+      {
+        "title": "Pride Is the Devil",
+        "artist": "J. Cole",
+        "year": 2021,
+        "genres": ["Hip-Hop", "Rap"]
+      },
+      {
+        "title": "Maneater",
+        "artist": "Daryl Hall & John Oates",
+        "year": 1982,
+        "genres": ["Pop", "Rock"]
+      }
+    ]
+  }
+  
