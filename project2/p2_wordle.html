@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- below meta tag suggested by peer to prevent ios zoom in -->
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link href="../project2/wordle_style.css" rel="stylesheet">
     <title>Wordle By Hope</title>
 </head>
 <body>
     <div class="body-container">
-        <h1>Welcome to Worldle</h1>
+        <h1>Welcome to Wordle</h1>
         <p>By Hope Rogan</p>
     <div class="wordle-container">
         <div class="row-container" id="row-container-1">
@@ -124,6 +127,7 @@
             var letters_in_row = document.querySelectorAll(row_id + " .letter");
 
             // first remove correct letters from the letter array to prevent miss-gold colored letters
+            // ARRAY IS HERE for grading 
             var letter_arr = winning_word.split("")
             for (var i = 0; i < 5; i++) {
                 if (guess[i] == winning_word[i]) {
